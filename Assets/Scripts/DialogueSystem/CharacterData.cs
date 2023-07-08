@@ -11,6 +11,7 @@ public class CharacterData : ScriptableObject
     public int m_strength;
     public int m_dexterity;
     public int m_intelligence;
+    public int m_money;
 
     // Note - the index of the dialogue will control what question it is linked too.
     public List<Dialogue> m_dialogueOptions;
