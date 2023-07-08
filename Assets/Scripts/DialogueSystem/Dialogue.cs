@@ -3,6 +3,7 @@
 public class Dialogue
 {
     public string text;
+    public string bulletizedText;
 }
 
 public class QuestionData

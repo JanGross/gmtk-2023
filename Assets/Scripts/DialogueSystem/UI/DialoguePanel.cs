@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -5,16 +6,24 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
+    public Action<string> OnQuestionsFinished;
+
     [SerializeField] private Transform m_questionHolder;
     [SerializeField] private Button m_questionButton;
 
     [SerializeField] private TMP_Text m_characterNameText;
     [SerializeField] private TMP_Text m_characterText;
+    [SerializeField] private CharacterSheetController m_characterSheetController;
 
     private const float TypingSpeed = 0.03f;
 
     private CharacterData m_currentCharacter;
     private bool m_skipped = false;
+
+    private int m_questionCount = QuestionData.Questions.Length;
+    private int m_questionsAsked = 0;
+
+    private bool QuestionsFinished => m_questionsAsked >= m_questionCount;
 
     private void Awake()
     {
@@ -26,6 +35,9 @@ public class DialoguePanel : MonoBehaviour
     public void Setup(CharacterData characterData)
     {
         Cleanup();
+
+        m_characterSheetController.Cleanup();
+        m_characterSheetController.SetName(characterData.name);
 
         m_currentCharacter = characterData;
         m_characterNameText.text = characterData.name;
@@ -84,6 +96,13 @@ public class DialoguePanel : MonoBehaviour
         m_skipped = true;
         m_characterText.text = text;
 
+        // If we've asked all the questions we should mark this character as interviewed and continue.
+        if (QuestionsFinished)
+        {
+            OnQuestionsFinished?.Invoke(m_currentCharacter.name);
+            yield break;
+        }
+
         // Re-enable the questions.
         m_questionHolder.gameObject.SetActive(true);
     }
@@ -91,14 +110,16 @@ public class DialoguePanel : MonoBehaviour
     // Handles displaying the correct dialogue for the question.
     private void OnQuestionButtonClicked(int index)
     {
-        //Debug.Log("Player picked option " + index);
-
         Cleanup();
 
         var dialogueOption = m_currentCharacter.m_dialogueOptions[index];
         StartCoroutine(DisplayText(dialogueOption.text));
 
         // TODO: we should update the sheet with this information.
+        m_characterSheetController.AddLine(dialogueOption.text);
+
+        // Increment questions asked.
+        m_questionsAsked++;
     }
 
     // Callback from Unity on the skip button.
