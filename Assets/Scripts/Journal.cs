@@ -11,6 +11,8 @@ public class Journal : MonoBehaviour
 
     public Transform adventurerPage;
     public Transform questPage;
+
+    private int m_selectedAdventurer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class Journal : MonoBehaviour
 
         if (m_availableAdventurers.Count > 0)
         {
-            SetJournalAdventurerPage(0);
+            SetJournalAdventurerPage(m_selectedAdventurer);
             adventurerPage.gameObject.SetActive(true);
         }
         journal.SetActive(true);
@@ -64,5 +66,21 @@ public class Journal : MonoBehaviour
         Quest quest = QuestManager.Instance.GetActiveQuest();
         questPage.Find("QuestName").gameObject.GetComponent<TMP_Text>().text = quest.name;
         questPage.Find("QuestDescription").gameObject.GetComponent<TMP_Text>().text = quest.description;
+    }
+
+    public void NextAdventurer()
+    {
+        m_selectedAdventurer = ++m_selectedAdventurer % m_availableAdventurers.Count();
+        SetJournalAdventurerPage(m_selectedAdventurer);
+    }
+
+    public void PreviousAdventurer()
+    {
+        m_selectedAdventurer = --m_selectedAdventurer;
+        if (m_selectedAdventurer < 0)
+        {
+            m_selectedAdventurer = m_availableAdventurers.Count() - 1;
+        }
+        SetJournalAdventurerPage(m_selectedAdventurer);
     }
 }
