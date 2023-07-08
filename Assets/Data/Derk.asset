@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddda90cbbcf3ea54e9105c3a5f0ac9a5, type: 3}
+  m_Name: Derk
+  m_EditorClassIdentifier: 
+  m_name: Derk
+  m_charisma: 5
+  m_strength: 5
+  m_dexterity: 3
+  m_intelligence: 5
+  m_money: 5
+  m_dialogueOptions:
+  - text: "Name\u2019s Derk"
+  - text: "Man, I just want to work, y\u2019know? Give me a task and I\u2019ll do
+      it, no problem for old Derk."
+  - text: "This mornin\u2019 I helped an old lady get into one of those high speed
+      trains. They always say Derk the jerk, but no one ever says \u201CWow, what
+      a nice guy\u201D. "
+  - text: "\u2026 (drools)"
+  - text: I just want money, whatevs
