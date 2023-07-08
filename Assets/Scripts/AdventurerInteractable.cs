@@ -5,6 +5,7 @@ using UnityEngine;
 public class AdventurerInteractable : MonoBehaviour
 {
     public DialogueController dialogueController;
+    public int m_spawnQuestID = 0;
 
     [SerializeField] private string m_name = string.Empty;
     // Start is called before the first frame update

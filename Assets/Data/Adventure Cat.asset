@@ -18,6 +18,7 @@ MonoBehaviour:
   m_strength: 10
   m_dexterity: 5
   m_intelligence: 5
+  m_spawnQuestId: 2
   m_dialogueOptions:
   - text: "<i>\u2026 (the cat looks at you, on her name collar you read: Adventure
       Cat)</i>"
