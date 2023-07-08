@@ -29,10 +29,9 @@ public class DialogueController : MonoBehaviour
         Debug.Log($"DialogueController: Character {characterName} finished interviewing");
 
         CharacterManager.Instance.SetInterviewed(characterName);
-
         PlayerController.Instance.cameraMovement = true;
-        // TODO: stop the dialogue and return to gameplay...
-        // TODO: we could probably show a "Quit" button highlighted.
+
+        m_dialoguePanel.gameObject.SetActive(false);
     }
 
     public void Debug_NextCharacter()
