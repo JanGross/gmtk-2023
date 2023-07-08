@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +19,15 @@ public class DialoguePanel : MonoBehaviour
 
     private const float TypingSpeed = 0.03f;
 
+    private List<int> m_questionIndexAsked = new List<int>();
     private CharacterData m_currentCharacter;
     private bool m_skipped = false;
 
     private int m_questionCount = QuestionData.Questions.Length;
     private int m_questionsAsked = 0;
+
+    private CharacterSheet m_characterSheet;
+    private string m_lineToAdd = "";
 
     private bool QuestionsFinished => m_questionsAsked >= m_questionCount;
 
@@ -36,16 +42,31 @@ public class DialoguePanel : MonoBehaviour
     {
         Cleanup();
 
-        m_characterSheetController.Cleanup();
-        m_characterSheetController.SetName(characterData.name);
-
+        m_questionsAsked = 0;
         m_currentCharacter = characterData;
         m_characterNameText.text = characterData.name;
 
-        // TODO: will this be changed with an introductory text?
         m_characterText.text = "Select an option...";
 
+        SetupCharacterSheet();
+        m_characterSheet.SetName(characterData.name);
+        m_characterSheet.gameObject.SetActive(true);
+
         gameObject.SetActive(true);
+    }
+
+    private void SetupCharacterSheet()
+    {
+        var sheetExists = m_characterSheetController.SheetExists(m_currentCharacter.name);
+
+        if (sheetExists)
+        {
+            m_characterSheet = m_characterSheetController.GetSheet(m_currentCharacter.name);
+            return;
+        }
+
+        // Create a new character sheet
+        m_characterSheet = m_characterSheetController.CreateSheet(m_currentCharacter.name);
     }
 
     // Handles cleaing up for the next text.
@@ -96,6 +117,9 @@ public class DialoguePanel : MonoBehaviour
         m_skipped = true;
         m_characterText.text = text;
 
+        // Add the current line to the character sheet.
+        PopulateCharacterSheet();
+
         // If we've asked all the questions we should mark this character as interviewed and continue.
         if (QuestionsFinished)
         {
@@ -115,11 +139,27 @@ public class DialoguePanel : MonoBehaviour
         var dialogueOption = m_currentCharacter.m_dialogueOptions[index];
         StartCoroutine(DisplayText(dialogueOption.text));
 
-        // TODO: we should update the sheet with this information.
-        m_characterSheetController.AddLine(dialogueOption.text);
+        // Setup the line to add to the character sheet once the dialogue has finished.
+        m_lineToAdd = $"<b>Q.) {QuestionData.Questions[index]}\n</b>A.) {dialogueOption.bulletizedText}";
+
+        MarkQuestionAsked(index);
+    }
+
+    // Marks the question as asked if it hasn't been asked already.
+    private void MarkQuestionAsked(int index)
+    {
+        if (m_questionIndexAsked.Contains(index))
+            return;
 
         // Increment questions asked.
         m_questionsAsked++;
+        m_questionIndexAsked.Add(index);
+    }
+
+    private void PopulateCharacterSheet()
+    {
+        m_characterSheet.AddLine(m_lineToAdd);
+        m_lineToAdd = "";
     }
 
     // Callback from Unity on the skip button.

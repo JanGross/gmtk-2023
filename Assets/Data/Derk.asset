@@ -17,13 +17,15 @@ MonoBehaviour:
   m_strength: 5
   m_dexterity: 3
   m_intelligence: 5
-  m_money: 5
   m_dialogueOptions:
   - text: "Name\u2019s Derk"
+    bulletizedText: Derk.
   - text: "Man, I just want to work, y\u2019know? Give me a task and I\u2019ll do
       it, no problem for old Derk."
+    bulletizedText: Just wants to work
   - text: "This mornin\u2019 I helped an old lady get into one of those high speed
       trains. They always say Derk the jerk, but no one ever says \u201CWow, what
       a nice guy\u201D. "
+    bulletizedText: Helped a lady get onto a high speed train.
   - text: "\u2026 (drools)"
-  - text: I just want money, whatevs
+    bulletizedText: ...

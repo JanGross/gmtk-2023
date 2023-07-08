@@ -1,48 +1,38 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CharacterSheetController : MonoBehaviour
 {
-    [SerializeField] private TMP_Text m_characterNameText;
-    [SerializeField] private TMP_Text m_line;
-    [SerializeField] private Transform m_lineHolder;
+    public CharacterSheet m_characterSheet;
+    public Transform m_characterSheetTransform;
 
-    private Dictionary<string, GameObject> m_lines = new Dictionary<string, GameObject>();
+    private Dictionary<string, CharacterSheet> m_characterSheets = new Dictionary<string, CharacterSheet>();
 
-    public void Cleanup()
+    // Returns if a character sheet exists for the character.
+    public bool SheetExists(string characterName)
     {
-        foreach(var line in m_lines)
-        {
-            Destroy(line.Value);
-        }
-
-        m_lines.Clear();
+        return m_characterSheets.ContainsKey(characterName);
     }
 
-    public void SetName(string name)
+    // Get the character sheet for the passed in character.
+    public CharacterSheet GetSheet(string name)
     {
-        m_characterNameText.text = name;
+        if (!m_characterSheets.ContainsKey(name))
+            return null;
+
+        CharacterSheet sheet = null;
+        m_characterSheets.TryGetValue(name, out sheet);
+
+        return sheet;
     }
 
-    // Adds a line to the character sheet.
-    public void AddLine(string lineText)
+    // Creates a new character sheet.
+    public CharacterSheet CreateSheet(string characterName)
     {
-        if (LineExists(lineText))
-            return;
+        var sheet = Instantiate(m_characterSheet, m_characterSheetTransform);
 
-        var line = Instantiate(m_line, m_lineHolder);
-        line.text = lineText;
+        m_characterSheets.Add(characterName, sheet);
 
-        line.gameObject.SetActive(true);
-
-        m_lines.Add(lineText, line.gameObject);
-    }
-
-    // Returns if the line has already been added.
-    private bool LineExists(string lineText)
-    {
-        return m_lines.ContainsKey(lineText);
+        return sheet;
     }
 }
