@@ -10,7 +10,6 @@ public class CharacterData : ScriptableObject
     public int m_strength;
     public int m_dexterity;
     public int m_intelligence;
-    public int m_money;
 
     [Header("The index of the dialogue relates to what question it should link too.")]
     public List<Dialogue> m_dialogueOptions;
