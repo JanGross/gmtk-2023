@@ -88,4 +88,23 @@ public class Journal : MonoBehaviour
         }
         SetJournalAdventurerPage(m_selectedAdventurer);
     }
+
+    public void AssignAdventurer()
+    {
+        Quest activeQuest = QuestManager.Instance.GetActiveQuest();
+        bool success = QuestManager.Instance.RunQuestWithAdventurer(m_availableAdventurers[m_selectedAdventurer], activeQuest);
+        Debug.Log("THE QUESTR ESULT WAS: " + success);
+        adventurerPage.gameObject.SetActive(false);
+        questPage.Find("QuestResult/QuestResultText").gameObject.GetComponent<TMP_Text>().text = success ? activeQuest.successStr : activeQuest.failedStr;
+        questPage.Find("QuestResult").gameObject.SetActive(true);
+    }
+
+    public void StartNextQuest()
+    {
+        Debug.Log("Starting next day");
+        questPage.Find("QuestResult").gameObject.SetActive(false);
+        QuestManager.Instance.NextQuest();
+        CloseJournal();
+        Debug.Log("Started next quest");
+    }
 }
