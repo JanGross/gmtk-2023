@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterSheetController : MonoBehaviour
