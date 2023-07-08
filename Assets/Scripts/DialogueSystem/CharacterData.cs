@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +12,6 @@ public class CharacterData : ScriptableObject
     public int m_intelligence;
     public int m_money;
 
-    // Note - the index of the dialogue will control what question it is linked too.
+    [Header("The index of the dialogue relates to what question it should link too.")]
     public List<Dialogue> m_dialogueOptions;
 }
