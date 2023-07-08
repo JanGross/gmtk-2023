@@ -42,6 +42,12 @@ public class DialoguePanel : MonoBehaviour
     {
         Cleanup();
 
+        if (m_characterSheet != null)
+        {
+            // Clear the old sheet
+            m_characterSheet.gameObject.SetActive(false);
+        }
+
         m_questionsAsked = 0;
         m_currentCharacter = characterData;
         m_characterNameText.text = characterData.name;
@@ -52,6 +58,7 @@ public class DialoguePanel : MonoBehaviour
         m_characterSheet.SetName(characterData.name);
         m_characterSheet.gameObject.SetActive(true);
 
+        m_questionHolder.gameObject.SetActive(true);
         gameObject.SetActive(true);
     }
 
