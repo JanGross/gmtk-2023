@@ -81,7 +81,7 @@ public class DialoguePanel : MonoBehaviour
     {
         m_skipped = false;
         m_characterText.text = "";
-
+        m_questionIndexAsked.Clear();
         StopAllCoroutines();
     }
 
