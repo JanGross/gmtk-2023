@@ -57,8 +57,17 @@ public class DialoguePanel : MonoBehaviour
         m_characterText.text = "Select an option...";
 
         SetupCharacterSheet();
-        m_characterSheet.SetName(characterData.name);
-        m_characterSheet.gameObject.SetActive(true);
+
+        if (CharacterManager.Instance.CharacterInterviewed(characterData.name))
+        {
+            m_characterSheet.SetName(characterData.name);
+            m_characterSheet.gameObject.SetActive(true);
+
+            // Hide the dialogue panel.
+            gameObject.SetActive(false);
+
+            return;
+        }
 
         m_questionIndexAsked.Clear();
         m_questionHolder.gameObject.SetActive(true);
