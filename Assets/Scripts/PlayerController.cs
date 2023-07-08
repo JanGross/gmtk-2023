@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Camera playerCam;
     public float xLimit = 45;
     public float yLimit = 25;
+    public bool cameraMovement = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = 2  * (Input.mousePosition.x / playerCam.pixelWidth) - 1;
-        float mouseY = -(2 * (Input.mousePosition.y / playerCam.pixelHeight) - 1);
+        if (cameraMovement)
+        {
+            float mouseX = 2 * (Input.mousePosition.x / playerCam.pixelWidth) - 1;
+            float mouseY = -(2 * (Input.mousePosition.y / playerCam.pixelHeight) - 1);
 
-        Quaternion rotation = Quaternion.Euler(yLimit * mouseY, xLimit * mouseX, 0);
-        playerCam.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(yLimit * mouseY, xLimit * mouseX, 0);
+            playerCam.transform.rotation = rotation;
+        }
     }
 }
