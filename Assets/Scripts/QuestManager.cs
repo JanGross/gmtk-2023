@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public int day = 0;
+    public int activeQuest = 0;
 
     public Quest[] quests = {
-        new Quest(_name: "", _desc: "Find someone to hand out flyers to advertise our tavern to adventurers. Strength, dexterity, intelligence: doesn’t matter, find someone who would do this for as little money as possible.", _failedStr: "Damn, that didn’t work at all. That robot just randomly started playing an instrument, much to the dismay of the townspeople.", _strength: 0, _intelligence: 0, _charisma: 5),
+        new Quest(_name: "Advert Quest 1", _desc: "Find someone to hand out flyers to advertise our tavern to adventurers. Strength, dexterity, intelligence: doesn’t matter, find someone who would do this for as little money as possible.", _failedStr: "Damn, that didn’t work at all. That robot just randomly started playing an instrument, much to the dismay of the townspeople.", _strength: 0, _intelligence: 0, _charisma: 5),
     };
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class Quest
 {
     public string name;
