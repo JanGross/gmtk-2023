@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddda90cbbcf3ea54e9105c3a5f0ac9a5, type: 3}
   m_Name: Derk
   m_EditorClassIdentifier: 
+  m_image: {fileID: 0}
   m_name: Derk
   m_charisma: 5
   m_strength: 5
@@ -22,7 +23,7 @@ MonoBehaviour:
     bulletizedText: Derk.
   - text: "Man, I just want to work, y\u2019know? Give me a task and I\u2019ll do
       it, no problem for old Derk."
-    bulletizedText: Just wants to work
+    bulletizedText: Just wants to work.
   - text: "This mornin\u2019 I helped an old lady get into one of those high speed
       trains. They always say Derk the jerk, but no one ever says \u201CWow, what
       a nice guy\u201D. "
