@@ -20,6 +20,8 @@ public class DialoguePanel : MonoBehaviour
     private const float TypingSpeed = 0.03f;
 
     private List<int> m_questionIndexAsked = new List<int>();
+    private List<Button> m_questionButtons = new List<Button>();
+
     private CharacterData m_currentCharacter;
     private bool m_skipped = false;
 
@@ -58,8 +60,14 @@ public class DialoguePanel : MonoBehaviour
         m_characterSheet.SetName(characterData.name);
         m_characterSheet.gameObject.SetActive(true);
 
+        m_questionIndexAsked.Clear();
         m_questionHolder.gameObject.SetActive(true);
         gameObject.SetActive(true);
+
+        foreach(var button in m_questionButtons)
+        {
+            button.interactable = true;
+        }
     }
 
     private void SetupCharacterSheet()
@@ -81,7 +89,6 @@ public class DialoguePanel : MonoBehaviour
     {
         m_skipped = false;
         m_characterText.text = "";
-        m_questionIndexAsked.Clear();
         StopAllCoroutines();
     }
 
@@ -102,6 +109,8 @@ public class DialoguePanel : MonoBehaviour
             button.onClick.AddListener(() => OnQuestionButtonClicked(index));
 
             button.gameObject.SetActive(true);
+
+            m_questionButtons.Add(button);
         }
     }
 
@@ -161,6 +170,8 @@ public class DialoguePanel : MonoBehaviour
         // Increment questions asked.
         m_questionsAsked++;
         m_questionIndexAsked.Add(index);
+
+        m_questionButtons[index].interactable = false;
     }
 
     private void PopulateCharacterSheet()
