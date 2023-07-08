@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {
+    [SerializeField] private DialoguePanel m_dialoguePanel;
+
     // TODO: 
     // - Load the correct character based on the character who has been interacted with
     // - Display the 5 question options and hook up their responses

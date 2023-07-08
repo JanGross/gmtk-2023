@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    [SerializeField] private string m_dialogueText;
+    public string text;
 }
 
 public class QuestionData
 {
-    public string[] m_questions = new string[] 
+    public static string[] Questions = new string[] 
     { 
         "Who are you?", 
         "Tell me something about yourself.", 
