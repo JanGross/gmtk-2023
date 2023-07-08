@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterSheetController : MonoBehaviour
 {
-    public CharacterSheet m_characterSheet;
-    public Transform m_characterSheetTransform;
+    [SerializeField] private CharacterSheet m_characterSheet;
+    [SerializeField] private Transform m_characterSheetTransform;
+
+    public IReadOnlyCollection<CharacterSheet> CharacterSheets => m_characterSheets.Values;
 
     private Dictionary<string, CharacterSheet> m_characterSheets = new Dictionary<string, CharacterSheet>();
 
