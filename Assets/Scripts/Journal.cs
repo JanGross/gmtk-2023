@@ -27,7 +27,12 @@ public class Journal : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("MOUSE DOWN ON INVENTORY");
+        if (GameManager.Instance.dialogueController.DialogueInProgress)
+        {
+            Debug.Log("Dialog in progress, not howing journal");
+            return;
+        }
+
         m_availableAdventurers.Clear();
         foreach (var character in CharacterManager.Instance.CharacterDatas)
         {
