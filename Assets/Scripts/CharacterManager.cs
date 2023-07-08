@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
@@ -34,5 +35,10 @@ public class CharacterManager : MonoBehaviour
     public void SetInterviewed(string name)
     {
         m_interviewed.Add(name, true);
+    }
+
+    public CharacterData GetCharacterDataByName(string name)
+    {
+        return m_characterDatas.Where(i => i.m_name == name).FirstOrDefault();
     }
 }
