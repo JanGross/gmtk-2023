@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public Vector3 forward;
     public Camera playerCam;
     public float xLimit = 45;
     public float yLimit = 25;
     public bool cameraMovement = true;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("There can only be one instance of the CharacterManager class");
+        }
     }
 
     // Update is called once per frame

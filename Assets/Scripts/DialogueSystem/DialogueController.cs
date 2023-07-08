@@ -8,17 +8,20 @@ public class DialogueController : MonoBehaviour
 
     private int m_currentIndex = 0;
 
+    public bool DialogueInProgress => m_dialoguePanel.gameObject.activeSelf;
+
+
     // DEBUG - Will need replacing with the character you selected.
     private void Start()
     {
-        DisplayCharacterText(CharacterManager.Instance.CharacterDatas[m_currentIndex]);
+        //DisplayCharacterText(CharacterManager.Instance.CharacterDatas[m_currentIndex]);
 
         m_dialoguePanel.OnQuestionsFinished += OnQuestionsFinished;
     }
 
     public void DisplayCharacterText(CharacterData character)
     {
-        m_dialoguePanel.Setup(character);
+           m_dialoguePanel.Setup(character);
     }
 
     public void OnQuestionsFinished(string characterName)
@@ -27,6 +30,7 @@ public class DialogueController : MonoBehaviour
 
         CharacterManager.Instance.SetInterviewed(characterName);
 
+        PlayerController.Instance.cameraMovement = true;
         // TODO: stop the dialogue and return to gameplay...
         // TODO: we could probably show a "Quit" button highlighted.
     }
