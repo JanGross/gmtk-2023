@@ -5,10 +5,16 @@ using UnityEngine;
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] private DialoguePanel m_dialoguePanel;
+    [SerializeField] private List<CharacterData> m_characterDatas;
 
-    // TODO: 
-    // - Load the correct character based on the character who has been interacted with
-    // - Display the 5 question options and hook up their responses
-    // - Fill out a character sheet as you go along
-    // - Update the visual with the text
+    // DEBUG - Will need replacing with the character you selected.
+    private void Start()
+    {
+        DisplayCharacterText(m_characterDatas[0]);
+    }
+
+    public void DisplayCharacterText(CharacterData character)
+    {
+        m_dialoguePanel.Setup(character);
+    }
 }

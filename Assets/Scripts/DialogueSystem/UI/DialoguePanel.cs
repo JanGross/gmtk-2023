@@ -12,16 +12,18 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private TMP_Text m_characterNameText;
     [SerializeField] private TMP_Text m_characterText;
 
-    private const float TypingSpeed = 0.02f;
+    private const float TypingSpeed = 0.03f;
 
     private CharacterData m_currentCharacter;
     private bool m_skipped = false;
 
-    private void Start()
+    private void Awake()
     {
         PopulateQuestionButtons();
+        gameObject.SetActive(false);
     }
 
+    // Sets the reference to the characterData to use.
     public void Setup(CharacterData characterData)
     {
         Cleanup();
@@ -31,8 +33,11 @@ public class DialoguePanel : MonoBehaviour
 
         // TODO: will this be changed with an introductory text?
         m_characterText.text = "Select an option...";
+
+        gameObject.SetActive(true);
     }
 
+    // Handles cleaing up for the next text.
     private void Cleanup()
     {
         m_skipped = false;
@@ -53,7 +58,11 @@ public class DialoguePanel : MonoBehaviour
             buttonText.text = QuestionData.Questions[i];
 
             var button = buttonObj.GetComponent<Button>();
-            button.onClick.AddListener(() => OnQuestionButtonClicked(i));
+
+            var index = i;
+            button.onClick.AddListener(() => OnQuestionButtonClicked(index));
+
+            button.gameObject.SetActive(true);
         }
     }
 
@@ -83,7 +92,7 @@ public class DialoguePanel : MonoBehaviour
     // Handles displaying the correct dialogue for the question.
     private void OnQuestionButtonClicked(int index)
     {
-        Debug.Log("Player picked option " + index);
+        //Debug.Log("Player picked option " + index);
 
         Cleanup();
 
@@ -91,5 +100,11 @@ public class DialoguePanel : MonoBehaviour
         StartCoroutine(DisplayText(dialogueOption.text));
 
         // TODO: we should update the sheet with this information.
+    }
+
+    // Callback from Unity on the skip button.
+    public void Action_SkipButtonClicked()
+    {
+        m_skipped = true;
     }
 }
