@@ -30,3 +30,4 @@ MonoBehaviour:
     bulletizedText: Helped a lady get onto a high speed train.
   - text: "\u2026 (drools)"
     bulletizedText: ...
+  m_typingSfx: {fileID: 0}

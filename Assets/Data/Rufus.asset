@@ -25,9 +25,10 @@ MonoBehaviour:
       a natural with people, as you can imagine. Everybody always wants to pet me,
       it can be quite annoying."
     bulletizedText: Anywhere with nature and people.
-  - text: Once, there was this guy that tried to steal my bone. I found him by following
-      his scent and then I stabbed him with my lightsword. Just kidding, I ratted
+  - text: Once, there was this guy that tried to steal my bone.I found him by following
+      his scent and then I stabbed him with my lightswod.  Just kidding, I ratted
       him out to the authorities of course.
     bulletizedText: Told the authorities about the guy who stole his bone.
   - text: Hmm, probably going on adventures with my 5 kids.
     bulletizedText: Going on adventures with his kids.
+  m_typingSfx: {fileID: 0}
