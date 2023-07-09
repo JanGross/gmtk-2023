@@ -32,4 +32,5 @@ MonoBehaviour:
     bulletizedText: Told the authorities about the guy who stole his bone.
   - text: Hmm, probably going on adventures with my 5 kids.
     bulletizedText: Going on adventures with his kids.
-  m_typingSfx: {fileID: 0}
+  m_typingSfx: {fileID: 8300000, guid: 4f0796ad7a8d5fc4f824fccd94e2e8e7, type: 3}
+  m_sfxPitch: 1.1
