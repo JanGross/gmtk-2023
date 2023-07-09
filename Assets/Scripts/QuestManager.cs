@@ -78,6 +78,7 @@ public class QuestManager : MonoBehaviour
         {
             Debug.Log("All quests completed");
             GameManager.Instance.FadePingPong(Win);
+            return;
         }
 
         
