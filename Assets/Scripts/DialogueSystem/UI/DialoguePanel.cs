@@ -43,6 +43,8 @@ public class DialoguePanel : MonoBehaviour
     // Sets the reference to the characterData to use.
     public void Setup(CharacterData characterData)
     {
+        m_questionIndexAsked.Clear();
+
         Cleanup();
 
         if (m_characterSheet != null)
@@ -53,7 +55,7 @@ public class DialoguePanel : MonoBehaviour
 
         m_questionsAsked = 0;
         m_currentCharacter = characterData;
-        m_characterNameText.text = characterData.name;
+        SetCharacterName();
 
         m_characterText.text = "Select an option...";
 
@@ -71,7 +73,6 @@ public class DialoguePanel : MonoBehaviour
             return;
         }
 
-        m_questionIndexAsked.Clear();
         m_questionHolder.gameObject.SetActive(true);
         gameObject.SetActive(true);
 
@@ -161,6 +162,20 @@ public class DialoguePanel : MonoBehaviour
         m_questionHolder.gameObject.SetActive(true);
     }
 
+    private void SetCharacterName()
+    {
+        // NOTE - the "who are you?" question is always in the first index. Remember that...
+        var introduced = m_questionIndexAsked.Contains(0);
+
+        if (introduced)
+        {
+            m_characterNameText.text = m_currentCharacter.name;
+            return;
+        }
+
+        m_characterNameText.text = "???";
+    }
+
     // Handles displaying the correct dialogue for the question.
     private void OnQuestionButtonClicked(int index)
     {
@@ -186,6 +201,9 @@ public class DialoguePanel : MonoBehaviour
         m_questionIndexAsked.Add(index);
 
         m_questionButtons[index].interactable = false;
+
+        // Check if we can reveal the character's name.
+        SetCharacterName();
     }
 
     private void PopulateCharacterSheet()
