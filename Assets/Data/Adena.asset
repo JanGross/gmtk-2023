@@ -24,13 +24,13 @@ MonoBehaviour:
       Velarius."
     bulletizedText: Adena. Princess.
   - text: "Working? A princess doesn\u2019t work, what do you have your robotic servants
-      for, after all? Well, that was before I left, now times are different\u2026"
+      for, after all? <br>Well, that was before I left, now times are different\u2026"
     bulletizedText: Stuck up princess doesn't work...
   - text: "Once, when I was still a wee little child, a bird landed on my finger
-      while I was staring at the moon. My parents loved it. \u201CWhat a cute, little
-      princess,\u201D they said. Well, my favourite moment was when I smashed their
-      palace into pieces after they tried to marry me to Sir Reginald the Lizardman.
-      Me and a lizard! Can you imagine?"
+      while I was staring at the moon. <br>My parents loved it. \u201CWhat a cute,
+      little princess,\u201D they said. <br>Well, my favourite moment was when I
+      smashed their palace into pieces after they tried to marry me to Sir Reginald
+      the Lizardman. Me and a lizard! Can you imagine?"
     bulletizedText: Destroying her parents palace for making her getting married
       to a lizard...
   - text: Away from this place and being worshipped as the goddess that I am, of

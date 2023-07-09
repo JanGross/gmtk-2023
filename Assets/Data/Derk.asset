@@ -26,8 +26,8 @@ MonoBehaviour:
       it, no problem for old Derk."
     bulletizedText: Just wants to work.
   - text: "This mornin\u2019 I helped an old lady get into one of those high speed
-      trains. They always say Derk the jerk, but no one ever says \u201CWow, what
-      a nice guy\u201D. "
+      trains. <br>They always say Derk the jerk, but no one ever says <br>\u201CWow,
+      what a nice guy\u201D. "
     bulletizedText: Helped a lady get onto a high speed train.
   - text: "\u2026 (drools)"
     bulletizedText: ...
