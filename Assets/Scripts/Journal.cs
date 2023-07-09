@@ -5,9 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class Journal : MonoBehaviour
 {
     public GameObject journal;
+    public AudioClip m_pageSound, m_openSound, m_closeSound;
     private List<CharacterData> m_availableAdventurers = new List<CharacterData>();
 
     public Transform adventurerPage;
@@ -52,11 +54,13 @@ public class Journal : MonoBehaviour
             adventurerPage.gameObject.SetActive(true);
         }
         journal.SetActive(true);
+        GetComponent<AudioSource>().PlayOneShot(m_openSound,1);
         //PlayerController.Instance.cameraMovement = false;
     }
     
     public void CloseJournal()
     {
+        GetComponent<AudioSource>().PlayOneShot(m_closeSound,1);
         journal.SetActive(false);
         adventurerPage.gameObject.SetActive(false);
         PlayerController.Instance.cameraMovement = true;
@@ -89,6 +93,8 @@ public class Journal : MonoBehaviour
     {
         m_selectedAdventurer = ++m_selectedAdventurer % m_availableAdventurers.Count();
         SetJournalAdventurerPage(m_selectedAdventurer);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.PlayOneShot(m_pageSound,1);
     }
 
     public void PreviousAdventurer()
@@ -99,6 +105,8 @@ public class Journal : MonoBehaviour
             m_selectedAdventurer = m_availableAdventurers.Count() - 1;
         }
         SetJournalAdventurerPage(m_selectedAdventurer);
+        GetComponent<AudioSource>().PlayOneShot(m_pageSound);
+
     }
 
     public void AssignAdventurer()
