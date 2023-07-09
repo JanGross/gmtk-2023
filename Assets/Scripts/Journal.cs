@@ -14,16 +14,16 @@ public class Journal : MonoBehaviour
     public Transform questPage;
 
     private int m_selectedAdventurer = 0;
-    // Start is called before the first frame update
-    void Start()
+
+
+    void OnMouseEnter()
     {
-        
+        GameManager.Instance.uiManager.SetCursor(GameManager.Instance.m_lookCursor);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseExit()
     {
-        
+        GameManager.Instance.uiManager.SetCursor(GameManager.Instance.m_defaultCursor);
     }
 
     private void OnMouseDown()

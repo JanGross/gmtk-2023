@@ -13,10 +13,14 @@ public class AdventurerInteractable : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseEnter()
     {
-        
+        GameManager.Instance.uiManager.SetCursor(GameManager.Instance.m_talkCursor);
+    }
+
+    void OnMouseExit()
+    {
+        GameManager.Instance.uiManager.SetCursor(GameManager.Instance.m_defaultCursor);
     }
 
     private void OnMouseDown()
@@ -27,6 +31,7 @@ public class AdventurerInteractable : MonoBehaviour
         if (GameManager.Instance.dialogueController.DialogueInProgress)
             return;
 
+        GameManager.Instance.uiManager.BlockInput(true);
         //PlayerController.Instance.cameraMovement = false;
         CharacterData character = CharacterManager.Instance.GetCharacterDataByName(m_name);
         GameManager.Instance.dialogueController.DisplayCharacterText(character);
