@@ -45,4 +45,10 @@ public class CharacterSheet : MonoBehaviour
     {
         return m_lines.ContainsKey(lineText);
     }
+
+    public void Action_Close()
+    {
+        PlayerController.Instance.cameraMovement = true;
+        gameObject.SetActive(false);
+    }
 }
