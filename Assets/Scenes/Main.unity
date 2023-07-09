@@ -3983,6 +3983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3495980768035395297, guid: 6d133d773848b7c4fb911aad8a3b729c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb447ca4463664d4fbf0fa9d48fe2d36, type: 2}
     - target: {fileID: 3699144090576527421, guid: 6d133d773848b7c4fb911aad8a3b729c, type: 3}
       propertyPath: m_Name
       value: Derk
