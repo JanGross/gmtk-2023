@@ -75,6 +75,12 @@ public class QuestManager : MonoBehaviour
                 adventurer.gameObject.SetActive(true);
             }
         }
+        GameManager.Instance.FadePingPong();
+    }
+
+    public void RetryQuest()
+    {
+        GameManager.Instance.FadePingPong();
     }
 }
 
