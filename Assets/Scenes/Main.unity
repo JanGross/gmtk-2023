@@ -1889,6 +1889,10 @@ PrefabInstance:
       propertyPath: m_characterSheetController
       value: 
       objectReference: {fileID: 928935828}
+    - target: {fileID: 6512961996365083824, guid: f18b8f083472d6b4ab442aca0ce66627, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 60418a081221eb04e9f4c9e9feee8f6d, type: 3}
     - target: {fileID: 8067225656648678592, guid: f18b8f083472d6b4ab442aca0ce66627, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
