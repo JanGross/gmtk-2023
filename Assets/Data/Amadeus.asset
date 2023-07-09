@@ -32,4 +32,5 @@ MonoBehaviour:
     bulletizedText: Playing instruments... Really badly...
   - text: "As a free robot on an exciting adventure. No people tho, I hate people\u2026"
     bulletizedText: As a free robot with no people...
-  m_typingSfx: {fileID: 0}
+  m_typingSfx: {fileID: 8300000, guid: 4f0796ad7a8d5fc4f824fccd94e2e8e7, type: 3}
+  m_sfxPitch: 1

@@ -32,4 +32,5 @@ MonoBehaviour:
   - text: "<i>\u2026 (Although cats are far from stupid, you don\u2019t think that
       an adventure cat would necessarily think about this)</i>"
     bulletizedText: N/A
-  m_typingSfx: {fileID: 0}
+  m_typingSfx: {fileID: 8300000, guid: 4f0796ad7a8d5fc4f824fccd94e2e8e7, type: 3}
+  m_sfxPitch: 1

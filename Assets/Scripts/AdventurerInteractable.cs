@@ -32,7 +32,7 @@ public class AdventurerInteractable : MonoBehaviour
             return;
 
         GameManager.Instance.uiManager.BlockInput(true);
-        //PlayerController.Instance.cameraMovement = false;
+        PlayerController.Instance.cameraMovement = false;
         CharacterData character = CharacterManager.Instance.GetCharacterDataByName(m_name);
         GameManager.Instance.dialogueController.DisplayCharacterText(character);
     }
