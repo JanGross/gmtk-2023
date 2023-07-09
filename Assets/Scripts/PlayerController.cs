@@ -27,13 +27,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cameraMovement)
+        if (Input.GetMouseButton(1))
         {
-            float mouseX = 2 * (Input.mousePosition.x / playerCam.pixelWidth) - 1;
-            float mouseY = -(2 * (Input.mousePosition.y / playerCam.pixelHeight) - 1);
+            if (cameraMovement)
+            {
+                float mouseX = 2 * (Input.mousePosition.x / playerCam.pixelWidth) - 1;
+                float mouseY = -(2 * (Input.mousePosition.y / playerCam.pixelHeight) - 1);
 
-            Quaternion rotation = Quaternion.Euler(yLimit * mouseY, xLimit * mouseX, 0);
-            playerCam.transform.rotation = rotation;
+                Quaternion rotation = Quaternion.Euler(yLimit * mouseY, xLimit * mouseX, 0);
+                playerCam.transform.rotation = rotation;
+            }
         }
     }
 }

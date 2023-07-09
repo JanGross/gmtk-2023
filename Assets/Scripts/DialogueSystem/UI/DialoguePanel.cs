@@ -17,6 +17,8 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private TMP_Text m_characterText;
     [SerializeField] private CharacterSheetController m_characterSheetController;
     [SerializeField] private GameObject m_dialogueEndedIndicator;
+    [SerializeField] private AudioSource m_sfxSource;
+    [SerializeField] private Image m_characterImage;
 
     private const float TypingSpeed = 0.03f;
 
@@ -45,12 +47,20 @@ public class DialoguePanel : MonoBehaviour
     {
         m_questionIndexAsked.Clear();
 
+        m_characterImage.sprite = characterData.m_avatar;
+        m_sfxSource.pitch = characterData.m_sfxPitch;
+
         Cleanup();
 
         if (m_characterSheet != null)
         {
             // Clear the old sheet
             m_characterSheet.gameObject.SetActive(false);
+        }
+
+        if (characterData.m_typingSfx != null)
+        {
+            m_sfxSource.clip = characterData.m_typingSfx;
         }
 
         m_questionsAsked = 0;
@@ -141,6 +151,10 @@ public class DialoguePanel : MonoBehaviour
             }
 
             m_characterText.text += letter;
+
+            if (!m_sfxSource.isPlaying)
+                m_sfxSource.Play();
+
             yield return new WaitForSeconds(TypingSpeed);
         }
 
