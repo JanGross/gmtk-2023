@@ -62,8 +62,14 @@ public class Journal : MonoBehaviour
     public void SetJournalAdventurerPage(int id)
     {
         CharacterData chara = m_availableAdventurers[id];
-        TMP_Text nameLabel = adventurerPage.Find("AdventurerName").gameObject.GetComponent<TMP_Text>();
-        nameLabel.text = chara.m_name;
+        adventurerPage.Find("AdventurerName").gameObject.GetComponent<TMP_Text>().text = chara.name;
+        string cv = "";
+        foreach (var line in chara.m_dialogueOptions)
+        {
+            cv += $"- {line.bulletizedText}\n";
+        }
+        adventurerPage.Find("AdventurerCV").gameObject.GetComponent<TMP_Text>().text = cv;
+
     }
 
     public void SetJournalQuestPage()
