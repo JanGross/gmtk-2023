@@ -52,7 +52,7 @@ public class Journal : MonoBehaviour
             adventurerPage.gameObject.SetActive(true);
         }
         journal.SetActive(true);
-        PlayerController.Instance.cameraMovement = false;
+        //PlayerController.Instance.cameraMovement = false;
     }
     
     public void CloseJournal()
