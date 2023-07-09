@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public DialogueController dialogueController;
     public UIManager uiManager;
 
+    public Texture2D m_talkCursor, m_lookCursor, m_defaultCursor;
+
     [SerializeField] private float m_fadeT;
     private float m_fadeTotal;
     [SerializeField] private bool m_showFade = false;

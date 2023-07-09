@@ -28,6 +28,7 @@ public class DialogueController : MonoBehaviour
     {
         Debug.Log($"DialogueController: Character {characterName} finished interviewing");
         CharacterManager.Instance.SetInterviewed(characterName);
+        GameManager.Instance.uiManager.BlockInput(false);
     }
 
     public void Debug_NextCharacter()
