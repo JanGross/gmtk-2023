@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AdventurerInteractable : MonoBehaviour
 {
-    public DialogueController dialogueController;
+    public int m_spawnQuestID = 0;
 
     [SerializeField] private string m_name = string.Empty;
     // Start is called before the first frame update
@@ -23,6 +23,6 @@ public class AdventurerInteractable : MonoBehaviour
     {
         PlayerController.Instance.cameraMovement = false;
         CharacterData character = CharacterManager.Instance.GetCharacterDataByName(m_name);
-        dialogueController.DisplayCharacterText(character);
+        GameManager.Instance.dialogueController.DisplayCharacterText(character);
     }
 }

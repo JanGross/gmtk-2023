@@ -16,10 +16,13 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private TMP_Text m_characterNameText;
     [SerializeField] private TMP_Text m_characterText;
     [SerializeField] private CharacterSheetController m_characterSheetController;
+    [SerializeField] private GameObject m_dialogueEndedIndicator;
 
     private const float TypingSpeed = 0.03f;
 
     private List<int> m_questionIndexAsked = new List<int>();
+    private List<Button> m_questionButtons = new List<Button>();
+
     private CharacterData m_currentCharacter;
     private bool m_skipped = false;
 
@@ -40,6 +43,8 @@ public class DialoguePanel : MonoBehaviour
     // Sets the reference to the characterData to use.
     public void Setup(CharacterData characterData)
     {
+        m_questionIndexAsked.Clear();
+
         Cleanup();
 
         if (m_characterSheet != null)
@@ -50,16 +55,33 @@ public class DialoguePanel : MonoBehaviour
 
         m_questionsAsked = 0;
         m_currentCharacter = characterData;
-        m_characterNameText.text = characterData.name;
+        SetCharacterName();
 
         m_characterText.text = "Select an option...";
 
         SetupCharacterSheet();
-        m_characterSheet.SetName(characterData.name);
-        m_characterSheet.gameObject.SetActive(true);
+
+        // Only show the character sheet if they have already been interviewed.
+        if (CharacterManager.Instance.CharacterInterviewed(characterData.name))
+        {
+            m_characterSheet.SetName(characterData.name);
+            m_characterSheet.gameObject.SetActive(true);
+
+            // Hide the dialogue panel.
+            gameObject.SetActive(false);
+
+            return;
+        }
 
         m_questionHolder.gameObject.SetActive(true);
         gameObject.SetActive(true);
+
+        foreach(var button in m_questionButtons)
+        {
+            button.interactable = true;
+        }
+
+        m_dialogueEndedIndicator.SetActive(false);
     }
 
     private void SetupCharacterSheet()
@@ -81,7 +103,6 @@ public class DialoguePanel : MonoBehaviour
     {
         m_skipped = false;
         m_characterText.text = "";
-        m_questionIndexAsked.Clear();
         StopAllCoroutines();
     }
 
@@ -102,6 +123,8 @@ public class DialoguePanel : MonoBehaviour
             button.onClick.AddListener(() => OnQuestionButtonClicked(index));
 
             button.gameObject.SetActive(true);
+
+            m_questionButtons.Add(button);
         }
     }
 
@@ -130,12 +153,27 @@ public class DialoguePanel : MonoBehaviour
         // If we've asked all the questions we should mark this character as interviewed and continue.
         if (QuestionsFinished)
         {
+            m_dialogueEndedIndicator.SetActive(true);
+
             OnQuestionsFinished?.Invoke(m_currentCharacter.name);
-            yield break;
         }
 
         // Re-enable the questions.
         m_questionHolder.gameObject.SetActive(true);
+    }
+
+    private void SetCharacterName()
+    {
+        // NOTE - the "who are you?" question is always in the first index. Remember that...
+        var introduced = m_questionIndexAsked.Contains(0);
+
+        if (introduced)
+        {
+            m_characterNameText.text = m_currentCharacter.name;
+            return;
+        }
+
+        m_characterNameText.text = "???";
     }
 
     // Handles displaying the correct dialogue for the question.
@@ -161,6 +199,11 @@ public class DialoguePanel : MonoBehaviour
         // Increment questions asked.
         m_questionsAsked++;
         m_questionIndexAsked.Add(index);
+
+        m_questionButtons[index].interactable = false;
+
+        // Check if we can reveal the character's name.
+        SetCharacterName();
     }
 
     private void PopulateCharacterSheet()
@@ -172,6 +215,16 @@ public class DialoguePanel : MonoBehaviour
     // Callback from Unity on the skip button.
     public void Action_SkipButtonClicked()
     {
+        if (m_skipped && QuestionsFinished)
+            DialogueEndedClicked();
+
         m_skipped = true;
+    }
+
+    // Sets the character as interviewed and releases control back to player.
+    public void DialogueEndedClicked()
+    {
+        PlayerController.Instance.cameraMovement = true;
+        gameObject.SetActive(false);
     }
 }

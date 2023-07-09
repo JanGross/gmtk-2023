@@ -27,7 +27,12 @@ public class Journal : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("MOUSE DOWN ON INVENTORY");
+        if (GameManager.Instance.dialogueController.DialogueInProgress)
+        {
+            Debug.Log("Dialog in progress, not howing journal");
+            return;
+        }
+
         m_availableAdventurers.Clear();
         foreach (var character in CharacterManager.Instance.CharacterDatas)
         {
@@ -82,5 +87,44 @@ public class Journal : MonoBehaviour
             m_selectedAdventurer = m_availableAdventurers.Count() - 1;
         }
         SetJournalAdventurerPage(m_selectedAdventurer);
+    }
+
+    public void AssignAdventurer()
+    {
+        Quest activeQuest = QuestManager.Instance.GetActiveQuest();
+        bool success = QuestManager.Instance.RunQuestWithAdventurer(m_availableAdventurers[m_selectedAdventurer], activeQuest);
+        Debug.Log("THE QUESTR ESULT WAS: " + success);
+        adventurerPage.gameObject.SetActive(false);
+
+        questPage.Find("QuestResult").gameObject.SetActive(true);
+        if (success)
+        {
+            questPage.Find("QuestResult/NextQuest").gameObject.SetActive(true);
+            questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(false);
+        } else
+        {
+            questPage.Find("QuestResult/NextQuest").gameObject.SetActive(false);
+            questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(true);
+        }
+
+        questPage.Find("QuestResult/QuestResultText").gameObject.GetComponent<TMP_Text>().text = success ? activeQuest.successStr : activeQuest.failedStr;
+        
+    }
+
+    public void StartNextQuest()
+    {
+        Debug.Log("Starting next day");
+        questPage.Find("QuestResult").gameObject.SetActive(false);
+        QuestManager.Instance.NextQuest();
+        CloseJournal();
+        Debug.Log("Started next quest");
+    }
+
+    public void RetryQuest()
+    {
+        Debug.Log("Retrying quest");
+        questPage.Find("QuestResult").gameObject.SetActive(false);
+        QuestManager.Instance.RetryQuest();
+        CloseJournal();
     }
 }

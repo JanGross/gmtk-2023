@@ -18,6 +18,7 @@ MonoBehaviour:
   m_strength: 7
   m_dexterity: 7
   m_intelligence: 7
+  m_spawnQuestId: 1
   m_dialogueOptions:
   - text: "Amadeus the robot, that\u2019s my name. How can I be of service? "
     bulletizedText: Amadeus.

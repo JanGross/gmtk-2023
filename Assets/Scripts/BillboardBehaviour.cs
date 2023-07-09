@@ -14,7 +14,7 @@ public class BillboardBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Camera.main.transform.position);
+        transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
         transform.rotation = Quaternion.Euler(new Vector3(initialRotation.x, transform.rotation.eulerAngles.y, initialRotation.z));
     }
 }
