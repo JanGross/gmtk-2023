@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float m_fadeTotal;
     [SerializeField] private bool m_showFade = false;
     [SerializeField] private float m_fadeDuration = 1;
+    private Action m_fadeCallback;
 
     private void Awake()
     {
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
                 m_fadeT += Time.deltaTime;
             } else
             {
+                m_fadeCallback?.Invoke();
+                m_fadeCallback = null;
                 m_fadeT -= Time.deltaTime;
             }
             m_fadeTotal += Time.deltaTime;
@@ -55,8 +59,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void FadePingPong()
+    public void FadePingPong(Action callback = null)
     {
+        m_fadeCallback = callback;
         m_fadeTotal = 0;
         m_showFade = true;
     }

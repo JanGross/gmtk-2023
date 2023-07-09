@@ -60,6 +60,17 @@ public class QuestManager : MonoBehaviour
         return true;
     }
 
+    public void SpawnAdventurers()
+    {
+        foreach (var adventurer in Resources.FindObjectsOfTypeAll<AdventurerInteractable>())
+        {
+            if (adventurer.m_spawnQuestID == activeQuest)
+            {
+                adventurer.gameObject.SetActive(true);
+            }
+        }
+    }
+
     public void NextQuest()
     {
         activeQuest++;
@@ -68,14 +79,8 @@ public class QuestManager : MonoBehaviour
             Debug.Log("All quests completed");
         }
 
-        foreach (var adventurer in Resources.FindObjectsOfTypeAll<AdventurerInteractable>())
-        {
-            if (adventurer.m_spawnQuestID == activeQuest)
-            {
-                adventurer.gameObject.SetActive(true);
-            }
-        }
-        GameManager.Instance.FadePingPong();
+        
+        GameManager.Instance.FadePingPong(SpawnAdventurers);
     }
 
     public void RetryQuest()
