@@ -16,6 +16,7 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private TMP_Text m_characterNameText;
     [SerializeField] private TMP_Text m_characterText;
     [SerializeField] private CharacterSheetController m_characterSheetController;
+    [SerializeField] private GameObject m_dialogueEndedIndicator;
 
     private const float TypingSpeed = 0.03f;
 
@@ -58,6 +59,7 @@ public class DialoguePanel : MonoBehaviour
 
         SetupCharacterSheet();
 
+        // Only show the character sheet if they have already been interviewed.
         if (CharacterManager.Instance.CharacterInterviewed(characterData.name))
         {
             m_characterSheet.SetName(characterData.name);
@@ -77,6 +79,8 @@ public class DialoguePanel : MonoBehaviour
         {
             button.interactable = true;
         }
+
+        m_dialogueEndedIndicator.SetActive(false);
     }
 
     private void SetupCharacterSheet()
@@ -148,8 +152,9 @@ public class DialoguePanel : MonoBehaviour
         // If we've asked all the questions we should mark this character as interviewed and continue.
         if (QuestionsFinished)
         {
+            m_dialogueEndedIndicator.SetActive(true);
+
             OnQuestionsFinished?.Invoke(m_currentCharacter.name);
-            yield break;
         }
 
         // Re-enable the questions.
@@ -192,6 +197,16 @@ public class DialoguePanel : MonoBehaviour
     // Callback from Unity on the skip button.
     public void Action_SkipButtonClicked()
     {
+        if (m_skipped && QuestionsFinished)
+            DialogueEndedClicked();
+
         m_skipped = true;
+    }
+
+    // Sets the character as interviewed and releases control back to player.
+    public void DialogueEndedClicked()
+    {
+        PlayerController.Instance.cameraMovement = true;
+        gameObject.SetActive(false);
     }
 }

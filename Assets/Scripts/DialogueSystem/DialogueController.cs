@@ -27,11 +27,7 @@ public class DialogueController : MonoBehaviour
     public void OnQuestionsFinished(string characterName)
     {
         Debug.Log($"DialogueController: Character {characterName} finished interviewing");
-
         CharacterManager.Instance.SetInterviewed(characterName);
-        PlayerController.Instance.cameraMovement = true;
-
-        m_dialoguePanel.gameObject.SetActive(false);
     }
 
     public void Debug_NextCharacter()
