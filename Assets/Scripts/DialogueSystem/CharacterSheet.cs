@@ -49,6 +49,7 @@ public class CharacterSheet : MonoBehaviour
     public void Action_Close()
     {
         PlayerController.Instance.cameraMovement = true;
+        GameManager.Instance.uiManager.BlockInput(false);
         gameObject.SetActive(false);
     }
 }
