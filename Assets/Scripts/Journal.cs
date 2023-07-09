@@ -95,7 +95,9 @@ public class Journal : MonoBehaviour
         bool success = QuestManager.Instance.RunQuestWithAdventurer(m_availableAdventurers[m_selectedAdventurer], activeQuest);
         Debug.Log("THE QUESTR ESULT WAS: " + success);
         adventurerPage.gameObject.SetActive(false);
-        if(success)
+
+        questPage.Find("QuestResult").gameObject.SetActive(true);
+        if (success)
         {
             questPage.Find("QuestResult/NextQuest").gameObject.SetActive(true);
             questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(false);
@@ -106,7 +108,7 @@ public class Journal : MonoBehaviour
         }
 
         questPage.Find("QuestResult/QuestResultText").gameObject.GetComponent<TMP_Text>().text = success ? activeQuest.successStr : activeQuest.failedStr;
-        questPage.Find("QuestResult").gameObject.SetActive(true);
+        
     }
 
     public void StartNextQuest()

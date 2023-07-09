@@ -2898,7 +2898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388867341823709995, guid: 5d865034cc8c4794082f625589d47ad6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.20577693
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 3388867341823709995, guid: 5d865034cc8c4794082f625589d47ad6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2906,7 +2906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3388867341823709995, guid: 5d865034cc8c4794082f625589d47ad6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5997834
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3388867341823709995, guid: 5d865034cc8c4794082f625589d47ad6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5363,7 +5363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NextQuest
+  m_text: Retry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5837,7 +5837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NextQuest
+  m_text: Next Quest
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6913,7 +6913,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 243041993}
         m_TargetAssemblyTypeName: Journal, Assembly-CSharp
-        m_MethodName: StartNextQuest
+        m_MethodName: RetryQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
