@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Image fadeRect;
     public DialogueController dialogueController;
+    public UIManager uiManager;
 
     [SerializeField] private float m_fadeT;
     private float m_fadeTotal;
@@ -54,9 +55,6 @@ public class GameManager : MonoBehaviour
 
             fadeRect.color = new Color(0f, 0f, 0f, Mathf.Lerp(0, 1, m_fadeT));
         }
-
-        
-
     }
 
     public void FadePingPong(Action callback = null)
