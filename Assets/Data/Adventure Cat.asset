@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Adventure Cat
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
+  m_avatar: {fileID: 21300000, guid: eff079f969ba97a41b289a5d5fd416f0, type: 3}
   m_name: Adventure Cat
   m_charisma: 5
   m_strength: 10
   m_dexterity: 5
   m_intelligence: 5
-  m_spawnQuestId: 2
   m_dialogueOptions:
   - text: "<i>\u2026 (the cat looks at you, on her name collar you read: Adventure
       Cat)</i>"
@@ -32,3 +32,4 @@ MonoBehaviour:
   - text: "<i>\u2026 (Although cats are far from stupid, you don\u2019t think that
       an adventure cat would necessarily think about this)</i>"
     bulletizedText: N/A
+  m_typingSfx: {fileID: 0}

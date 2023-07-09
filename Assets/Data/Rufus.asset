@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rufus
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
+  m_avatar: {fileID: 21300000, guid: 622ebc6effcb8c0458b8bf110ada911a, type: 3}
   m_name: Rufus
   m_charisma: 8
   m_strength: 4
@@ -21,13 +22,14 @@ MonoBehaviour:
   m_dialogueOptions:
   - text: I am Rufus, here to help you.
     bulletizedText: Rufus.
-  - text: "I am a nature kinda guy, hunt, fetch, you know how it goes. Also, I\u2019m
-      a natural with people, as you can imagine. Everybody always wants to pet me,
-      it can be quite annoying."
+  - text: "I am a nature kinda guy, hunt, fetch, you know how it goes. <br>Also,
+      I\u2019m a natural with people, as you can imagine. <br>Everybody always wants
+      to pet me, it can be quite annoying."
     bulletizedText: Anywhere with nature and people.
-  - text: Once, there was this guy that tried to steal my bone. I found him by following
-      his scent and then I stabbed him with my lightsword. Just kidding, I ratted
-      him out to the authorities of course.
+  - text: Once, there was this guy that tried to steal my bone. <br>I found him by
+      following his scent and then I stabbed him with my lightswod.  <br>Just kidding,
+      I ratted him out to the authorities of course.
     bulletizedText: Told the authorities about the guy who stole his bone.
   - text: Hmm, probably going on adventures with my 5 kids.
     bulletizedText: Going on adventures with his kids.
+  m_typingSfx: {fileID: 0}

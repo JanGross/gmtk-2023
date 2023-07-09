@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Derk
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
+  m_avatar: {fileID: 21300000, guid: 8fef586f3af1449418c717b43ef4e25e, type: 3}
   m_name: Derk
   m_charisma: 5
   m_strength: 5
@@ -25,8 +26,9 @@ MonoBehaviour:
       it, no problem for old Derk."
     bulletizedText: Just wants to work.
   - text: "This mornin\u2019 I helped an old lady get into one of those high speed
-      trains. They always say Derk the jerk, but no one ever says \u201CWow, what
-      a nice guy\u201D. "
+      trains. <br>They always say Derk the jerk, but no one ever says <br>\u201CWow,
+      what a nice guy\u201D. "
     bulletizedText: Helped a lady get onto a high speed train.
   - text: "\u2026 (drools)"
     bulletizedText: ...
+  m_typingSfx: {fileID: 0}

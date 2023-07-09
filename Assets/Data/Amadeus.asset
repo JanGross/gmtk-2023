@@ -13,22 +13,23 @@ MonoBehaviour:
   m_Name: Amadeus
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
+  m_avatar: {fileID: 21300000, guid: 364be8af730401347bd42dd24246ea32, type: 3}
   m_name: Amadeus
   m_charisma: 2
   m_strength: 7
   m_dexterity: 7
   m_intelligence: 7
-  m_spawnQuestId: 1
   m_dialogueOptions:
   - text: "Amadeus the robot, that\u2019s my name. How can I be of service? "
     bulletizedText: Amadeus.
   - text: "Well, I\u2019m used to working for my old master. A crazy old scholar.
-      Always wanted me to climb up mountains and pick flowers."
+      <br>Always wanted me to climb up mountains and pick flowers."
     bulletizedText: Used to working with his old master. Climbed mountains and picked
       flowers.
   - text: "Even though I\u2019ve seen many things in my life, my master used to do
-      the fighting. However, once I was told to try my hands at playing an instrument.
-      I liked it, but my master shut his ears and a nearby cave bear died instantly."
+      the fighting. <br>However, once I was told to try my hands at playing an instrument.
+      <br>I liked it, but my master shut his ears and a nearby cave bear died instantly."
     bulletizedText: Playing instruments... Really badly...
   - text: "As a free robot on an exciting adventure. No people tho, I hate people\u2026"
     bulletizedText: As a free robot with no people...
+  m_typingSfx: {fileID: 0}
