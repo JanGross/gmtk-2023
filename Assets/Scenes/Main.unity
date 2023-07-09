@@ -1715,10 +1715,10 @@ RectTransform:
   m_Father: {fileID: 1555822333}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.10700001}
-  m_AnchorMax: {x: 1, y: 0.2756175}
-  m_AnchoredPosition: {x: 0, y: -274}
-  m_SizeDelta: {x: -46, y: 535.7133}
+  m_AnchorMin: {x: 0, y: 0.13656823}
+  m_AnchorMax: {x: 1, y: 0.31286353}
+  m_AnchoredPosition: {x: 0, y: -256}
+  m_SizeDelta: {x: -46, y: 529.7133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &340478448
 MonoBehaviour:
@@ -1740,7 +1740,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UUoough result much
+  m_text: Disaster struck, town and tavern are in ruins. <br>The C Y B E R P R I
+    E S T S are victorious once more. Haha.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1767,8 +1768,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3370,7 +3371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000037193, y: 0.0000069141}
+  m_AnchoredPosition: {x: 0, y: 0.0000076293945}
   m_SizeDelta: {x: 83.0101, y: 0.000015259}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &653815783
@@ -4728,7 +4729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ASS
+  m_text: Assign
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5477,10 +5478,10 @@ RectTransform:
   m_Father: {fileID: 137465973}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.2756175}
-  m_AnchorMax: {x: 1, y: 0.74100006}
-  m_AnchoredPosition: {x: 0, y: -123.3999}
-  m_SizeDelta: {x: -46, y: 257.71332}
+  m_AnchorMin: {x: 0, y: 0.43056828}
+  m_AnchorMax: {x: 1, y: 0.9014318}
+  m_AnchoredPosition: {x: 0, y: -133}
+  m_SizeDelta: {x: -46, y: 253.71332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493783872
 MonoBehaviour:
@@ -5502,9 +5503,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "DEFAULT Find someone to hand out flyers to advertise our tavern to adventurers.
-    Strength, dexterity, intelligence: doesn\u2019t matter, find someone who would
-    do this for as little money as possible.\r\n"
+  m_text: 'Okay, now it''s getting serious. <br>Turns out the viscous <br>C Y B E
+    R P R I E S T S were behind the attack on Trudy. <br>Seems like they stole an
+    object that she kept in her wardrobe, not knowing that it was the last piece
+    required to summon the <br>C Y B E R D R A G O N to destroy this inn. We need
+    someone that can stop them! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5531,8 +5534,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6649,7 +6652,7 @@ GameObject:
   - component: {fileID: 1806738462}
   - component: {fileID: 1806738461}
   m_Layer: 5
-  m_Name: Avatar
+  m_Name: AdventurerAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Journal : MonoBehaviour
 {
@@ -67,6 +68,7 @@ public class Journal : MonoBehaviour
     {
         CharacterData chara = m_availableAdventurers[id];
         adventurerPage.Find("AdventurerName").gameObject.GetComponent<TMP_Text>().text = chara.name;
+        adventurerPage.Find("AdventurerAvatar").gameObject.GetComponent<Image>().sprite = chara.m_avatar;
         string cv = "";
         foreach (var line in chara.m_dialogueOptions)
         {

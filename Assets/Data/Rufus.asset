@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rufus
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
+  m_avatar: {fileID: 21300000, guid: 622ebc6effcb8c0458b8bf110ada911a, type: 3}
   m_name: Rufus
   m_charisma: 8
   m_strength: 4

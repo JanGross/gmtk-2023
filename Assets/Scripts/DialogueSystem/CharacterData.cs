@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public Sprite m_image;
+    public Sprite m_avatar;
     public string m_name;
 
     public int m_charisma;
