@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_image: {fileID: 0}
   m_name: Rufus
-  m_charisma: 0
-  m_strength: 0
-  m_dexterity: 0
-  m_intelligence: 0
-  m_spawnQuestId: 2
+  m_charisma: 8
+  m_strength: 4
+  m_dexterity: 2147483647
+  m_intelligence: 8
   m_dialogueOptions:
   - text: I am Rufus, here to help you.
     bulletizedText: Rufus.

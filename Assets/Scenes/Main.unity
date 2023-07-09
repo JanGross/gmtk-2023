@@ -2759,6 +2759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amadeus
       objectReference: {fileID: 0}
+    - target: {fileID: 1870273300618322397, guid: 599cc90e543b1e245b6343415a04da55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7731217770752160392, guid: 599cc90e543b1e245b6343415a04da55, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3475,6 +3479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: El Gato
       objectReference: {fileID: 0}
+    - target: {fileID: 6753687320438571134, guid: 5d865034cc8c4794082f625589d47ad6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4059,6 +4067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rufus
       objectReference: {fileID: 0}
+    - target: {fileID: 6096406778207906987, guid: 370c5c8959fc36f4ba551a36dd124f01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4395,6 +4407,7 @@ MonoBehaviour:
     successStr: 'Perfect, this place will be full of adventurers in no time. '
     failedStr: "Damn, that didn\u2019t work at all. That robot just randomly started
       playing an instrument, much to the dismay of the townspeople."
+    canRetry: 1
     strength: 0
     intelligence: 0
     charisma: 5
@@ -4408,6 +4421,7 @@ MonoBehaviour:
     failedStr: "What a day. First, your adventurer accidentally stumbled over old
       Trudy and then seemed utterly suspicious to the police. Worst of all, we couldn\u2019t
       secure any evidence."
+    canRetry: 1
     strength: 3
     intelligence: 7
     charisma: 7
@@ -4422,6 +4436,7 @@ MonoBehaviour:
       forget you. Without your expertise, we wouldn\u2019t still be standing here. "
     failedStr: Disaster struck, town and tavern are in ruins. The C Y B E R P R I
       E S T S are victorious once more. Haha.
+    canRetry: 0
     strength: 10
     intelligence: 5
     charisma: 0
@@ -5590,6 +5605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Adena
       objectReference: {fileID: 0}
+    - target: {fileID: 8709160301237413648, guid: 77b11eaf3e8d39f44bdab1b2f57720db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6159,7 +6178,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1145.19
   field of view: 45
   orthographic: 0
   orthographic size: 5

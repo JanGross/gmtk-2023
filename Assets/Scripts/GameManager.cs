@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -64,5 +65,10 @@ public class GameManager : MonoBehaviour
         m_fadeCallback = callback;
         m_fadeTotal = 0;
         m_showFade = true;
+    }
+
+    public void ShowGameResultScene(bool success)
+    {
+        SceneManager.LoadScene(success ? "WinScene" : "LossScene");
     }
 }
