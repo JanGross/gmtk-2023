@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddda90cbbcf3ea54e9105c3a5f0ac9a5, type: 3}
+  m_Name: Rufus
+  m_EditorClassIdentifier: 
+  m_image: {fileID: 0}
+  m_name: Rufus
+  m_charisma: 0
+  m_strength: 0
+  m_dexterity: 0
+  m_intelligence: 0
+  m_spawnQuestId: 2
+  m_dialogueOptions:
+  - text: I am Rufus, here to help you.
+    bulletizedText: Rufus.
+  - text: "I am a nature kinda guy, hunt, fetch, you know how it goes. Also, I\u2019m
+      a natural with people, as you can imagine. Everybody always wants to pet me,
+      it can be quite annoying."
+    bulletizedText: Anywhere with nature and people.
+  - text: Once, there was this guy that tried to steal my bone. I found him by following
+      his scent and then I stabbed him with my lightsword. Just kidding, I ratted
+      him out to the authorities of course.
+    bulletizedText: Told the authorities about the guy who stole his bone.
+  - text: Hmm, probably going on adventures with my 5 kids.
+    bulletizedText: Going on adventures with his kids.

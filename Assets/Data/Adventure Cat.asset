@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddda90cbbcf3ea54e9105c3a5f0ac9a5, type: 3}
+  m_Name: Adventure Cat
+  m_EditorClassIdentifier: 
+  m_image: {fileID: 0}
+  m_name: Adventure Cat
+  m_charisma: 5
+  m_strength: 10
+  m_dexterity: 5
+  m_intelligence: 5
+  m_spawnQuestId: 2
+  m_dialogueOptions:
+  - text: "<i>\u2026 (the cat looks at you, on her name collar you read: Adventure
+      Cat)</i>"
+    bulletizedText: Adventure Cat.
+  - text: "<i>\u2026 (the cat starts to purr)</i>"
+    bulletizedText: ...
+  - text: "<i>\u2026 (looking at the cat\u2019s claws you notice that they are drenched
+      in blood \u2026 and her Photon-pistol, it seems like this cat can handle almost
+      anything)</i>"
+    bulletizedText: Badass killer.
+  - text: "<i>\u2026 (Although cats are far from stupid, you don\u2019t think that
+      an adventure cat would necessarily think about this)</i>"
+    bulletizedText: N/A
