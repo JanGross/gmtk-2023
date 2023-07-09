@@ -21,6 +21,12 @@ public class AdventurerInteractable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance.uiManager.InputBlocked)
+            return;
+
+        if (GameManager.Instance.dialogueController.DialogueInProgress)
+            return;
+
         PlayerController.Instance.cameraMovement = false;
         CharacterData character = CharacterManager.Instance.GetCharacterDataByName(m_name);
         GameManager.Instance.dialogueController.DisplayCharacterText(character);

@@ -33,6 +33,8 @@ public class Journal : MonoBehaviour
             return;
         }
 
+        GameManager.Instance.uiManager.BlockInput(true);
+
         m_availableAdventurers.Clear();
         foreach (var character in CharacterManager.Instance.CharacterDatas)
         {
@@ -57,6 +59,8 @@ public class Journal : MonoBehaviour
         journal.SetActive(false);
         adventurerPage.gameObject.SetActive(false);
         PlayerController.Instance.cameraMovement = true;
+
+        GameManager.Instance.uiManager.BlockInput(false);
     }
 
     public void SetJournalAdventurerPage(int id)

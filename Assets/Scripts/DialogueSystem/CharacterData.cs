@@ -14,4 +14,6 @@ public class CharacterData : ScriptableObject
 
     [Header("The index of the dialogue relates to what question it should link too.")]
     public List<Dialogue> m_dialogueOptions;
+
+    public AudioSource m_typingSfx;
 }
