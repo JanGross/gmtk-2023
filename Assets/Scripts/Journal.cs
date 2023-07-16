@@ -8,13 +8,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class Journal : MonoBehaviour
 {
-    public GameObject journal;
-    public AudioClip m_pageSound, m_openSound, m_closeSound;
+    [SerializeField] private GameObject m_journal;
+    [SerializeField] private AudioClip m_pageSound, m_openSound, m_closeSound;
+
+    [SerializeField] 
+    private Transform m_adventurerPage, m_questPage;
+
     private List<CharacterData> m_availableAdventurers = new List<CharacterData>();
-
-    public Transform adventurerPage;
-    public Transform questPage;
-
     private int m_selectedAdventurer = 0;
 
 
@@ -42,7 +42,6 @@ public class Journal : MonoBehaviour
         foreach (var character in CharacterManager.Instance.CharacterDatas)
         {
             if (CharacterManager.Instance.CharacterInterviewed(character.name)) {
-                Debug.Log("Available Adventurer:" +  character.name);
                 m_availableAdventurers.Add(character);
             }
         }
@@ -51,42 +50,41 @@ public class Journal : MonoBehaviour
         if (m_availableAdventurers.Count > 0)
         {
             SetJournalAdventurerPage(m_selectedAdventurer);
-            adventurerPage.gameObject.SetActive(true);
+            m_adventurerPage.gameObject.SetActive(true);
         }
-        journal.SetActive(true);
+        m_journal.SetActive(true);
         GetComponent<AudioSource>().PlayOneShot(m_openSound,1);
-        //PlayerController.Instance.cameraMovement = false;
     }
     
     public void CloseJournal()
     {
         GetComponent<AudioSource>().PlayOneShot(m_closeSound,1);
-        journal.SetActive(false);
-        adventurerPage.gameObject.SetActive(false);
+        m_journal.SetActive(false);
+        m_adventurerPage.gameObject.SetActive(false);
         PlayerController.Instance.cameraMovement = true;
 
         GameManager.Instance.uiManager.BlockInput(false);
     }
 
-    public void SetJournalAdventurerPage(int id)
+    private void SetJournalAdventurerPage(int id)
     {
         CharacterData chara = m_availableAdventurers[id];
-        adventurerPage.Find("AdventurerName").gameObject.GetComponent<TMP_Text>().text = chara.name;
-        adventurerPage.Find("AdventurerAvatar").gameObject.GetComponent<Image>().sprite = chara.m_avatar;
+        m_adventurerPage.Find("AdventurerName").gameObject.GetComponent<TMP_Text>().text = chara.name;
+        m_adventurerPage.Find("AdventurerAvatar").gameObject.GetComponent<Image>().sprite = chara.m_avatar;
         string cv = "";
         foreach (var line in chara.m_dialogueOptions)
         {
             cv += $"- {line.bulletizedText}\n";
         }
-        adventurerPage.Find("AdventurerCV").gameObject.GetComponent<TMP_Text>().text = cv;
+        m_adventurerPage.Find("AdventurerCV").gameObject.GetComponent<TMP_Text>().text = cv;
 
     }
 
-    public void SetJournalQuestPage()
+    private void SetJournalQuestPage()
     {
         Quest quest = QuestManager.Instance.GetActiveQuest();
-        questPage.Find("QuestName").gameObject.GetComponent<TMP_Text>().text = quest.name;
-        questPage.Find("QuestDescription").gameObject.GetComponent<TMP_Text>().text = quest.description;
+        m_questPage.Find("QuestName").gameObject.GetComponent<TMP_Text>().text = quest.name;
+        m_questPage.Find("QuestDescription").gameObject.GetComponent<TMP_Text>().text = quest.description;
     }
 
     public void NextAdventurer()
@@ -113,37 +111,35 @@ public class Journal : MonoBehaviour
     {
         Quest activeQuest = QuestManager.Instance.GetActiveQuest();
         bool success = QuestManager.Instance.RunQuestWithAdventurer(m_availableAdventurers[m_selectedAdventurer], activeQuest);
-        Debug.Log("THE QUESTR ESULT WAS: " + success);
-        adventurerPage.gameObject.SetActive(false);
+        m_adventurerPage.gameObject.SetActive(false);
 
-        questPage.Find("QuestResult").gameObject.SetActive(true);
+        m_questPage.Find("QuestResult").gameObject.SetActive(true);
         if (success)
         {
-            questPage.Find("QuestResult/NextQuest").gameObject.SetActive(true);
-            questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(false);
+            m_questPage.Find("QuestResult/NextQuest").gameObject.SetActive(true);
+            m_questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(false);
         } else
         {
-            questPage.Find("QuestResult/NextQuest").gameObject.SetActive(false);
-            questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(true);
+            m_questPage.Find("QuestResult/NextQuest").gameObject.SetActive(false);
+            m_questPage.Find("QuestResult/RetryQuest").gameObject.SetActive(true);
         }
 
-        questPage.Find("QuestResult/QuestResultText").gameObject.GetComponent<TMP_Text>().text = success ? activeQuest.successStr : activeQuest.failedStr;
+        m_questPage.Find("QuestResult/QuestResultText").gameObject.GetComponent<TMP_Text>().text = success ? activeQuest.successStr : activeQuest.failedStr;
         
     }
 
     public void StartNextQuest()
     {
         Debug.Log("Starting next day");
-        questPage.Find("QuestResult").gameObject.SetActive(false);
+        m_questPage.Find("QuestResult").gameObject.SetActive(false);
         QuestManager.Instance.NextQuest();
         CloseJournal();
-        Debug.Log("Started next quest");
     }
 
     public void RetryQuest()
     {
         Debug.Log("Retrying quest");
-        questPage.Find("QuestResult").gameObject.SetActive(false);
+        m_questPage.Find("QuestResult").gameObject.SetActive(false);
         QuestManager.Instance.RetryQuest();
         CloseJournal();
     }

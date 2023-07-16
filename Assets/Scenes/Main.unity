@@ -1285,12 +1285,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0493f659bb4e67428b686920758641b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  journal: {fileID: 22208185}
+  m_journal: {fileID: 22208185}
   m_pageSound: {fileID: 8300000, guid: 9f4b6c8a11388384cbce1b85d03f053a, type: 3}
   m_openSound: {fileID: 8300000, guid: fd39bd6850cc59d4caec9846abe40cb7, type: 3}
   m_closeSound: {fileID: 8300000, guid: 451bd7638e5a31249b6fbcbfa1ed524a, type: 3}
-  adventurerPage: {fileID: 219076562}
-  questPage: {fileID: 137465973}
+  m_adventurerPage: {fileID: 219076562}
+  m_questPage: {fileID: 137465973}
 --- !u!65 &243041994
 BoxCollider:
   m_ObjectHideFlags: 0
